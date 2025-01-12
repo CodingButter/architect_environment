@@ -1,15 +1,15 @@
-import { buttonVariants } from "@/components/ui/button"
-import { PageRoutes } from "@/lib/routes-config"
 import { MoveUpRightIcon, TerminalSquareIcon } from "lucide-react"
 import Link from "next/link"
+import { buttonVariants } from "@/components/ui/button"
+import { PageRoutes } from "@/lib/routes-config"
 
 export default function Home() {
   return (
     <div className="flex sm:min-h-[85.5vh] min-h-[85vh] flex-col items-center justify-center text-center px-2 sm:py-8 py-12">
       <Link
+        className="mb-5 sm:text-lg flex items-center gap-2 underline underline-offset-4 sm:-mt-12"
         href="https://github.com/nisabmohd/Aria-Docs"
-        target="_blank"
-        className="mb-5 sm:text-lg flex items-center gap-2 underline underline-offset-4 sm:-mt-12">
+        target="_blank">
         Follow along on GitHub <MoveUpRightIcon className="w-4 h-4 font-extrabold" />
       </Link>
       <h1 className="text-3xl font-bold mb-4 sm:text-6xl">
@@ -21,17 +21,17 @@ export default function Home() {
       </p>
       <div className="flex flex-row items-center gap-5">
         <Link
-          href={`/docs${PageRoutes[0].href}`}
-          className={buttonVariants({ className: "px-6", size: "lg" })}>
+          className={buttonVariants({ className: "px-6", size: "lg" })}
+          href={`/docs${PageRoutes[0].href}`}>
           Get Stared
         </Link>
         <Link
-          href="/blog"
           className={buttonVariants({
             variant: "secondary",
             className: "px-6",
             size: "lg",
-          })}>
+          })}
+          href="/blog">
           Read Blog
         </Link>
       </div>

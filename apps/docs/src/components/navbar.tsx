@@ -1,8 +1,8 @@
 import { CommandIcon } from "lucide-react"
-import { SiGithub , SiGitter } from "react-icons/si"
+import { SiGithub, SiGitter } from "react-icons/si"
 import Link from "next/link"
 import { ModeToggle } from "@/components/theme-toggle"
-import { page_routes } from "@/lib/routes-config"
+import { PageRoutes } from "@/lib/routes-config"
 import { SheetClose } from "@/components/ui/sheet"
 import { buttonVariants } from "./ui/button"
 import Anchor from "./anchor"
@@ -12,7 +12,7 @@ import Search from "./search"
 export const NAVLINKS = [
   {
     title: "Documentation",
-    href: `/docs${page_routes[0].href}`,
+    href: `/docs${PageRoutes[0].href}`,
   },
   {
     title: "Blog",
