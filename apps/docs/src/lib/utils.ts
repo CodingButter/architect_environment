@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { EachRoute, ROUTES } from "./routes-config";
+import type { EachRoute} from "./routes-config";
+import { ROUTES } from "./routes-config";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -31,7 +32,7 @@ export function helperSearch(
         currenLevel + 1,
         maxLevel
       );
-      if (!!innerRes.length && !parentHas && !node.noLink) {
+      if (Boolean(innerRes.length) && !parentHas && !node.noLink) {
         res.push({ ...node, items: undefined, href: nextLink });
         parentHas = true;
       }

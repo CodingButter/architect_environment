@@ -1,7 +1,7 @@
-import { buttonVariants } from "@/components/ui/button";
-import { page_routes } from "@/lib/routes-config";
-import { MoveUpRightIcon, TerminalSquareIcon } from "lucide-react";
-import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button"
+import { PageRoutes } from "@/lib/routes-config"
+import { MoveUpRightIcon, TerminalSquareIcon } from "lucide-react"
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -9,25 +9,20 @@ export default function Home() {
       <Link
         href="https://github.com/nisabmohd/Aria-Docs"
         target="_blank"
-        className="mb-5 sm:text-lg flex items-center gap-2 underline underline-offset-4 sm:-mt-12"
-      >
-        Follow along on GitHub{" "}
-        <MoveUpRightIcon className="w-4 h-4 font-extrabold" />
+        className="mb-5 sm:text-lg flex items-center gap-2 underline underline-offset-4 sm:-mt-12">
+        Follow along on GitHub <MoveUpRightIcon className="w-4 h-4 font-extrabold" />
       </Link>
       <h1 className="text-3xl font-bold mb-4 sm:text-6xl">
-        Effortlessly build stunning documentation sites with Next.js and server
-        components.
+        Effortlessly build stunning documentation sites with Next.js and server components.
       </h1>
       <p className="mb-8 sm:text-lg max-w-[800px] text-muted-foreground">
-        This feature-packed documentation template, built with Next.js, offers a
-        sleek and responsive design, perfect for all your project documentation
-        needs.
+        This feature-packed documentation template, built with Next.js, offers a sleek and
+        responsive design, perfect for all your project documentation needs.
       </p>
       <div className="flex flex-row items-center gap-5">
         <Link
-          href={`/docs${page_routes[0].href}`}
-          className={buttonVariants({ className: "px-6", size: "lg" })}
-        >
+          href={`/docs${PageRoutes[0].href}`}
+          className={buttonVariants({ className: "px-6", size: "lg" })}>
           Get Stared
         </Link>
         <Link
@@ -36,8 +31,7 @@ export default function Home() {
             variant: "secondary",
             className: "px-6",
             size: "lg",
-          })}
-        >
+          })}>
           Read Blog
         </Link>
       </div>
@@ -46,5 +40,5 @@ export default function Home() {
         {"npx create-aria-doc <project-directory>"}
       </span>
     </div>
-  );
+  )
 }

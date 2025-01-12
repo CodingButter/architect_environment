@@ -150,6 +150,9 @@ importers:
       typescript:
         specifier: 5.5.4
         version: 5.5.4
+      unist-util-visit:
+        specifier: ^5.0.0
+        version: 5.0.0
 
   apps/web:
     dependencies:

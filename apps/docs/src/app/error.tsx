@@ -1,8 +1,8 @@
 "use client"; // Error components must be Client Components
 
-import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { useEffect } from "react";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 export default function Error({
   error,
@@ -20,7 +20,7 @@ export default function Error({
       <div className="text-center flex flex-col items-center justify-center w-fit gap-2">
         <h2 className="text-7xl font-bold pr-1">Oops!</h2>
         <p className="text-muted-foreground text-md font-medium">
-          Something went wrong {":`("}
+          Something went wrong :`(
         </p>
         <p>
           We&apos;re sorry, but an error occurred while processing your request.
@@ -30,12 +30,12 @@ export default function Error({
         <Button
           onClick={
             // Attempt to recover by trying to re-render the segment
-            () => reset()
+            () => { reset(); }
           }
         >
           Reload page
         </Button>
-        <Link href="/" className={buttonVariants({})}>
+        <Link className={buttonVariants({})} href="/">
           Back to homepage
         </Link>
       </div>

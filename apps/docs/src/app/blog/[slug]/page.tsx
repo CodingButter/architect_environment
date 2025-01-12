@@ -1,16 +1,17 @@
-import { Typography } from "@/components/typography";
-import { buttonVariants } from "@/components/ui/button";
-import { Author, getAllBlogStaticPaths, getBlogForSlug } from "@/lib/markdown";
 import { ArrowLeftIcon } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Image from "next/image";
+import { Typography } from "@/components/typography";
+import { buttonVariants } from "@/components/ui/button";
+import type { Author} from "@/lib/markdown";
+import { getAllBlogStaticPaths, getBlogForSlug } from "@/lib/markdown";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { formatDate } from "@/lib/utils";
-import Image from "next/image";
 
-type PageProps = {
+interface PageProps {
   params: Promise<{ slug: string }>;
-};
+}
 
 export async function generateMetadata(props: PageProps) {
   const params = await props.params;
@@ -69,11 +70,11 @@ export default async function BlogPage(props: PageProps) {
       <div className="!w-full">
         <div className="w-full mb-7">
           <Image
-            src={res.frontmatter.cover}
             alt="cover"
-            width={700}
-            height={400}
             className="w-full h-[400px] rounded-md border object-cover"
+            height={400}
+            src={res.frontmatter.cover}
+            width={700}
           />
         </div>
         <Typography>{res.content}</Typography>
@@ -88,8 +89,8 @@ function Authors({ authors }: { authors: Author[] }) {
       {authors.map((author) => {
         return (
           <Link
-            href={author.handleUrl}
             className="flex items-center gap-2"
+            href={author.handleUrl}
             key={author.username}
           >
             <Avatar className="w-10 h-10">

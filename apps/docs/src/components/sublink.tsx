@@ -1,5 +1,6 @@
-import { EachRoute } from "@/lib/routes-config";
-import Anchor from "./anchor";
+import { ChevronDown, ChevronRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import {
   Collapsible,
   CollapsibleContent,
@@ -7,9 +8,8 @@ import {
 } from "@/components/ui/collapsible";
 import { cn } from "@/lib/utils";
 import { SheetClose } from "@/components/ui/sheet";
-import { ChevronDown, ChevronRight } from "lucide-react";
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import type { EachRoute } from "@/lib/routes-config";
+import Anchor from "./anchor";
 
 export default function SubLink({
   title,
@@ -51,7 +51,7 @@ export default function SubLink({
 
   return (
     <div className="flex flex-col gap-1 w-full">
-      <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+      <Collapsible onOpenChange={setIsOpen} open={isOpen}>
         <CollapsibleTrigger className="w-full pr-5">
           <div className="flex items-center justify-between cursor-pointer w-full">
             {titleOrLink}
@@ -71,7 +71,7 @@ export default function SubLink({
               level > 0 && "pl-4 border-l ml-1.5"
             )}
           >
-            {items?.map((innerLink) => {
+            {items.map((innerLink) => {
               const modifiedItems = {
                 ...innerLink,
                 href: `${href + innerLink.href}`,

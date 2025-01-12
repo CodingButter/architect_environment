@@ -1,9 +1,9 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ComponentProps } from "react";
+import type { ComponentProps } from "react";
+import { cn } from "@/lib/utils";
 
 type AnchorProps = ComponentProps<typeof Link> & {
   absolute?: boolean;

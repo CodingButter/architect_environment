@@ -1,5 +1,6 @@
-import { BaseMdxFrontmatter, getAllChilds } from "@/lib/markdown";
 import Link from "next/link";
+import type { BaseMdxFrontmatter} from "@/lib/markdown";
+import { getAllChilds } from "@/lib/markdown";
 
 export default async function Outlet({ path }: { path: string }) {
   if (!path) throw new Error("path not provided");
@@ -19,8 +20,8 @@ type ChildCardProps = BaseMdxFrontmatter & { href: string };
 function ChildCard({ description, href, title }: ChildCardProps) {
   return (
     <Link
-      href={href}
       className="border rounded-md p-4 no-underline flex flex-col gap-0.5"
+      href={href}
     >
       <h4 className="!my-0">{title}</h4>
       <p className="text-sm text-muted-foreground !my-0">{description}</p>

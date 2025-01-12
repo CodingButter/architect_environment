@@ -1,12 +1,11 @@
+import path from "node:path";
+import { promises as fs } from "node:fs";
 import { compileMDX } from "next-mdx-remote/rsc";
-import path from "path";
-import { promises as fs } from "fs";
 import remarkGfm from "remark-gfm";
 import rehypePrism from "rehype-prism-plus";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import rehypeCodeTitles from "rehype-code-titles";
-import { page_routes, ROUTES } from "./routes-config";
 import { visit } from "unist-util-visit";
 import matter from "gray-matter";
 
@@ -18,6 +17,7 @@ import { Stepper, StepperItem } from "@/components/markdown/stepper";
 import Image from "@/components/markdown/image";
 import Link from "@/components/markdown/link";
 import Outlet from "@/components/markdown/outlet";
+import { page_routes, ROUTES } from "./routes-config";
 
 // add custom components
 const components = {
@@ -58,10 +58,10 @@ async function parseMdx<Frontmatter>(rawMdx: string) {
 
 // logic for docs
 
-export type BaseMdxFrontmatter = {
+export interface BaseMdxFrontmatter {
   title: string;
   description: string;
-};
+}
 
 export async function getDocsForSlug(slug: string) {
   try {
@@ -161,17 +161,17 @@ const preProcess = () => (tree: any) => {
 const postProcess = () => (tree: any) => {
   visit(tree, "element", (node) => {
     if (node?.type === "element" && node?.tagName === "pre") {
-      node.properties["raw"] = node.raw;
+      node.properties.raw = node.raw;
     }
   });
 };
 
-export type Author = {
+export interface Author {
   avatar?: string;
   handle: string;
   username: string;
   handleUrl: string;
-};
+}
 
 export type BlogMdxFrontmatter = BaseMdxFrontmatter & {
   date: string;
@@ -202,7 +202,7 @@ export async function getAllBlogs() {
       };
     }),
   );
-  return uncheckedRes.filter((it) => !!it) as (BlogMdxFrontmatter & {
+  return uncheckedRes.filter((it) => Boolean(it)) as (BlogMdxFrontmatter & {
     slug: string;
   })[];
 }

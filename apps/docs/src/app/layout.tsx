@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import { Space_Mono, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/components/contexts/theme-provider";
 import { Navbar } from "@/components/navbar";
-import { Space_Mono, Space_Grotesk } from "next/font/google";
 import { Footer } from "@/components/footer";
 import "@/styles/globals.css";
 
@@ -40,8 +40,8 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
-          enableSystem
           disableTransitionOnChange
+          enableSystem
         >
           <Navbar />
           <main className="sm:container mx-auto w-[90vw] h-auto scroll-smooth">

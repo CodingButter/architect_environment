@@ -1,6 +1,7 @@
 "use client";
 
 import { CommandIcon, FileIcon, SearchIcon } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 import { Input } from "@/components/ui/input";
 import {
   Dialog,
@@ -10,10 +11,9 @@ import {
   DialogClose,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { useEffect, useMemo, useState } from "react";
-import Anchor from "./anchor";
 import { advanceSearch, cn } from "@/lib/utils";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import Anchor from "./anchor";
 
 export default function Search() {
   const [searchedInput, setSearchedInput] = useState("");
@@ -41,11 +41,11 @@ export default function Search() {
   return (
     <div>
       <Dialog
-        open={isOpen}
         onOpenChange={(open) => {
           if (!open) setSearchedInput("");
           setIsOpen(open);
         }}
+        open={isOpen}
       >
         <DialogTrigger asChild>
           <div className="relative flex-1 max-w-md cursor-pointer">
@@ -65,19 +65,17 @@ export default function Search() {
           <DialogTitle className="sr-only">Search</DialogTitle>
           <DialogHeader>
             <input
-              value={searchedInput}
-              onChange={(e) => setSearchedInput(e.target.value)}
-              placeholder="Type something to search..."
               autoFocus
               className="h-14 px-6 bg-transparent border-b text-[14px] outline-none"
+              onChange={(e) => { setSearchedInput(e.target.value); }}
+              placeholder="Type something to search..."
+              value={searchedInput}
             />
           </DialogHeader>
-          {filteredResults.length == 0 && searchedInput && (
-            <p className="text-muted-foreground mx-auto mt-2 text-sm">
+          {filteredResults.length == 0 && searchedInput ? <p className="text-muted-foreground mx-auto mt-2 text-sm">
               No results found for{" "}
               <span className="text-primary">{`"${searchedInput}"`}</span>
-            </p>
-          )}
+            </p> : null}
           <ScrollArea className="max-h-[400px] overflow-y-auto">
             <div className="flex flex-col items-start overflow-y-auto sm:px-2 px-1 pb-4">
               {filteredResults.map((item) => {
@@ -86,7 +84,7 @@ export default function Search() {
                 const paddingClass = paddingMap[level];
 
                 return (
-                  <DialogClose key={item.href} asChild>
+                  <DialogClose asChild key={item.href}>
                     <Anchor
                       className={cn(
                         "dark:hover:bg-stone-900 hover:bg-stone-100 w-full px-3 rounded-sm text-sm flex items-center gap-2.5",

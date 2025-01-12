@@ -1,6 +1,6 @@
-import { getPreviousNext } from "@/lib/markdown";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
+import { getPreviousNext } from "@/lib/markdown";
 import { buttonVariants } from "./ui/button";
 
 export default function Pagination({ pathname }: { pathname: string }) {
@@ -9,8 +9,7 @@ export default function Pagination({ pathname }: { pathname: string }) {
   return (
     <div className="grid grid-cols-2 flex-grow sm:py-10 py-7 gap-3">
       <div>
-        {res.prev && (
-          <Link
+        {res.prev ? <Link
             className={buttonVariants({
               variant: "outline",
               className:
@@ -23,12 +22,10 @@ export default function Pagination({ pathname }: { pathname: string }) {
               Previous
             </span>
             <span className="mt-1 ml-1">{res.prev.title}</span>
-          </Link>
-        )}
+          </Link> : null}
       </div>
       <div>
-        {res.next && (
-          <Link
+        {res.next ? <Link
             className={buttonVariants({
               variant: "outline",
               className:
@@ -41,8 +38,7 @@ export default function Pagination({ pathname }: { pathname: string }) {
               <ChevronRightIcon className="w-[1rem] h-[1rem] ml-1" />
             </span>
             <span className="mt-1 mr-1">{res.next.title}</span>
-          </Link>
-        )}
+          </Link> : null}
       </div>
     </div>
   );

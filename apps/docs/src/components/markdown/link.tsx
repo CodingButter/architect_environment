@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { ComponentProps } from "react";
+import type { ComponentProps } from "react";
 
 export default function Link({ href, ...props }: ComponentProps<"a">) {
   if (!href) return null;
@@ -7,8 +7,8 @@ export default function Link({ href, ...props }: ComponentProps<"a">) {
     <NextLink
       href={href}
       {...props}
-      target="_blank"
       rel="noopener noreferrer"
+      target="_blank"
     />
   );
 }

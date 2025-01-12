@@ -1,14 +1,14 @@
+import { notFound } from "next/navigation";
 import DocsBreadcrumb from "@/components/docs-breadcrumb";
 import Pagination from "@/components/pagination";
 import Toc from "@/components/toc";
 import { page_routes } from "@/lib/routes-config";
-import { notFound } from "next/navigation";
 import { getDocsForSlug } from "@/lib/markdown";
 import { Typography } from "@/components/typography";
 
-type PageProps = {
+interface PageProps {
   params: Promise<{ slug: string[] }>;
-};
+}
 
 export default async function DocsPage(props: PageProps) {
   const params = await props.params;

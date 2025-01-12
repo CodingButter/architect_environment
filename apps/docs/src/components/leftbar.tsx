@@ -1,3 +1,4 @@
+import { AlignLeftIcon } from "lucide-react";
 import {
   Sheet,
   SheetClose,
@@ -5,12 +6,11 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Logo, NavMenu } from "./navbar";
 import { Button } from "./ui/button";
-import { AlignLeftIcon } from "lucide-react";
 import { FooterButtons } from "./footer";
 import { DialogTitle } from "./ui/dialog";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import DocsMenu from "./docs-menu";
 
 export function Leftbar() {
@@ -27,14 +27,14 @@ export function SheetLeftbar() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="md:hidden flex">
+        <Button className="md:hidden flex" size="icon" variant="ghost">
           <AlignLeftIcon />
         </Button>
       </SheetTrigger>
       <SheetContent className="flex flex-col gap-4 px-0" side="left">
         <DialogTitle className="sr-only">Menu</DialogTitle>
         <SheetHeader>
-          <SheetClose className="px-5" asChild>
+          <SheetClose asChild className="px-5">
             <Logo />
           </SheetClose>
         </SheetHeader>

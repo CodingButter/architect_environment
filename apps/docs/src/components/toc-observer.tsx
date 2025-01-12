@@ -1,11 +1,11 @@
 "use client";
 
-import { getDocsTocs } from "@/lib/markdown";
 import clsx from "clsx";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
+import type { getDocsTocs } from "@/lib/markdown";
 
-type Props = { data: Awaited<ReturnType<typeof getDocsTocs>> };
+interface Props { data: Awaited<ReturnType<typeof getDocsTocs>> }
 
 export default function TocObserver({ data }: Props) {
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -51,8 +51,6 @@ export default function TocObserver({ data }: Props) {
       {data.map(({ href, level, text }, index) => {
         return (
           <Link
-            key={href + text + level + index}
-            href={href}
             className={clsx({
               "pl-0": level == 2,
               "pl-4": level == 3,
@@ -60,6 +58,8 @@ export default function TocObserver({ data }: Props) {
               "dark:font-medium font-semibold text-primary":
                 activeId == href.slice(1),
             })}
+            href={href}
+            key={href + text + level + index}
           >
             {text}
           </Link>

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { buttonVariants } from "./ui/button";
 import { CommandIcon, HeartIcon, TriangleIcon } from "lucide-react";
+import { buttonVariants } from "./ui/button";
 
 export function Footer() {
   return (
@@ -39,15 +39,15 @@ export function FooterButtons() {
   return (
     <>
       <Link
-        href="https://vercel.com/templates/next.js/documentation-template"
         className={buttonVariants({ variant: "outline", size: "sm" })}
+        href="https://vercel.com/templates/next.js/documentation-template"
       >
         <TriangleIcon className="h-[0.8rem] w-4 mr-2 text-primary fill-current" />
         Deploy
       </Link>
       <Link
-        href="https://github.com/sponsors/nisabmohd"
         className={buttonVariants({ variant: "outline", size: "sm" })}
+        href="https://github.com/sponsors/nisabmohd"
       >
         <HeartIcon className="h-4 w-4 mr-2 text-red-600 fill-current" />
         Sponsor

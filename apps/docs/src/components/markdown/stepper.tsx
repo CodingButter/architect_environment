@@ -1,6 +1,7 @@
-import { cn } from "@/lib/utils";
 import clsx from "clsx";
-import { Children, PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
+import { Children } from "react";
+import { cn } from "@/lib/utils";
 
 export function Stepper({ children }: PropsWithChildren) {
   const length = Children.count(children);

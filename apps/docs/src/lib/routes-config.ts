@@ -1,11 +1,11 @@
 // for page navigation & to sort on leftbar
 
-export type EachRoute = {
+export interface EachRoute {
   title: string;
   href: string;
   noLink?: true; // noLink will create a route segment (section) but cannot be navigated
   items?: EachRoute[];
-};
+}
 
 export const ROUTES: EachRoute[] = [
   {
@@ -44,7 +44,7 @@ export const ROUTES: EachRoute[] = [
   },
 ];
 
-type Page = { title: string; href: string };
+interface Page { title: string; href: string }
 
 function getRecurrsiveAllLinks(node: EachRoute) {
   const ans: Page[] = [];

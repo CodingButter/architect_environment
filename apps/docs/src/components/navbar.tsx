@@ -1,14 +1,13 @@
-import { ModeToggle } from "@/components/theme-toggle"
 import { CommandIcon } from "lucide-react"
-import { SiGithub } from "react-icons/si"
+import { SiGithub , SiGitter } from "react-icons/si"
 import Link from "next/link"
-import { SiGitter } from "react-icons/si"
-import { buttonVariants } from "./ui/button"
-import Search from "./search"
-import Anchor from "./anchor"
-import { SheetLeftbar } from "./leftbar"
+import { ModeToggle } from "@/components/theme-toggle"
 import { page_routes } from "@/lib/routes-config"
 import { SheetClose } from "@/components/ui/sheet"
+import { buttonVariants } from "./ui/button"
+import Anchor from "./anchor"
+import { SheetLeftbar } from "./leftbar"
+import Search from "./search"
 
 export const NAVLINKS = [
   {
@@ -54,16 +53,16 @@ export function Navbar() {
             <Search />
             <div className="flex ml-2.5 sm:ml-0">
               <Link
-                href="https://github.com/nisabmohd/NexDocs"
-                className={buttonVariants({ variant: "ghost", size: "icon" })}>
+                className={buttonVariants({ variant: "ghost", size: "icon" })}
+                href="https://github.com/nisabmohd/NexDocs">
                 <SiGithub className="h-[1.1rem] w-[1.1rem]" />
               </Link>
               <Link
-                href="#"
                 className={buttonVariants({
                   variant: "ghost",
                   size: "icon",
-                })}>
+                })}
+                href="#">
                 <SiGitter className="h-[1.1rem] w-[1.1rem]" />
               </Link>
               <ModeToggle />
@@ -77,7 +76,7 @@ export function Navbar() {
 
 export function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-2.5">
+    <Link className="flex items-center gap-2.5" href="/">
       <CommandIcon className="w-6 h-6 text-muted-foreground" strokeWidth={2} />
       <h2 className="text-md font-bold font-code">AriaDocs</h2>
     </Link>
@@ -90,16 +89,16 @@ export function NavMenu({ isSheet = false }) {
       {NAVLINKS.map((item) => {
         const Comp = (
           <Anchor
-            key={item.title + item.href}
-            activeClassName="!text-primary dark:font-medium font-semibold"
             absolute
+            activeClassName="!text-primary dark:font-medium font-semibold"
             className="flex items-center gap-1 dark:text-stone-300/85 text-stone-800"
-            href={item.href}>
+            href={item.href}
+            key={item.title + item.href}>
             {item.title}
           </Anchor>
         )
         return isSheet ? (
-          <SheetClose key={item.title + item.href} asChild>
+          <SheetClose asChild key={item.title + item.href}>
             {Comp}
           </SheetClose>
         ) : (
