@@ -1,0 +1,34 @@
+---
+title: Plugin Integration
+description: Integrating plugins into the Architect system.
+---
+
+Plugins in Architect extend the functionality of agents and provide reusable logic for various tasks. They can be shared across agents or customized for specific needs.
+
+## Plugin Architecture
+
+```plantuml
+@startuml
+title Plugin Integration
+package "Plugins" {
+  component "Shared Plugin" as SharedPlugin
+  component "Agent-Specific Plugin" as AgentPlugin
+}
+package "Agents" {
+  component "Agent A" as AgentA
+  component "Agent B" as AgentB
+}
+AgentA --> SharedPlugin : Use Plugin
+AgentB --> AgentPlugin : Customize Plugin
+@enduml
+```
+
+### Shared Plugins
+
+Shared plugins are reusable across multiple agents and provide generic functionality, such as data transformation or logging.
+
+### Agent-Specific Plugins
+
+Agent-specific plugins are tailored to the requirements of individual agents, enabling specialized behavior and integration.
+
+By leveraging plugins, Architect ensures modularity and reduces code duplication.

@@ -1,0 +1,64 @@
+---
+title: Core Components
+description: Core components of the Architect framework.
+---
+
+Architect is built around several key components to provide a robust and scalable architecture:
+
+## Orchestrator
+
+The orchestrator acts as the central hub for managing tasks and agent interactions.
+
+```plantuml
+@startuml
+title Orchestrator
+participant TaskQueue
+participant AgentManager
+participant Logger
+
+TaskQueue --> AgentManager : Assign Task
+AgentManager -> Logger : Log Assignment
+AgentManager --> Agent : Dispatch Task
+Agent -> Logger : Log Completion
+@enduml
+```
+
+## Agents
+
+Agents are modular, task-specific entities designed to handle logic independently.
+
+```plantuml
+@startuml
+title Agents
+participant Orchestrator
+participant Agent
+participant Plugin
+
+Orchestrator --> Agent : Send Context
+Agent -> Plugin : Use Plugin
+Plugin --> Agent : Return Result
+Agent --> Orchestrator : Return Processed Data
+@enduml
+```
+
+## Plugins
+
+Plugins extend the capabilities of agents by providing reusable logic and integration with external systems.
+
+```plantuml
+@startuml
+title Plugins
+package "Plugins" {
+  component "Shared Plugin" as SharedPlugin
+  component "Agent-Specific Plugin" as AgentPlugin
+}
+package "Agents" {
+  component "Agent A" as AgentA
+  component "Agent B" as AgentB
+}
+AgentA --> SharedPlugin : Use Plugin
+AgentB --> AgentPlugin : Customize Plugin
+@enduml
+```
+
+These components together ensure that Architect remains highly extensible and easy to maintain.

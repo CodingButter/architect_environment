@@ -1,0 +1,26 @@
+---
+title: Overview
+description: An overview of the Architect system architecture.
+---
+
+Architect is built around several core components that interact to provide a scalable and modular framework. Below is an overview of these components:
+
+## Orchestrator
+
+The orchestrator acts as the central hub for managing tasks and agent interactions.
+
+```plantuml
+@startuml
+title Orchestrator
+participant TaskQueue
+participant AgentManager
+participant Logger
+
+TaskQueue --> AgentManager : Assign Task
+AgentManager -> Logger : Log Assignment
+AgentManager --> Agent : Dispatch Task
+Agent -> Logger : Log Completion
+@enduml
+```
+
+The orchestrator ensures task routing, error handling, and logging are handled effectively.

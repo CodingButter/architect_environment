@@ -9,38 +9,43 @@ export interface EachRoute {
 
 export const ROUTES: EachRoute[] = [
   {
-    title: "Getting Started",
-    href: "/getting-started",
+    title: "System Architecture",
+    href: "/system-architecture",
     noLink: true,
     items: [
-      { title: "Introduction", href: "/introduction" },
-      {
-        title: "Installation",
-        href: "/installation",
-      },
-      { title: "Quick Start Guide", href: "/quick-start-guide" },
-      {
-        title: "Project Structure",
-        href: "/project-structure",
-      },
-      {
-        title: "Components",
-        href: "/components",
-        items: [
-          { title: "Stepper", href: "/stepper" },
-          { title: "Tabs", href: "/tabs" },
-          { title: "Note", href: "/note" },
-          { title: "Code Block", href: "/code-block" },
-          { title: "Image & Link", href: "/image-link" },
-          { title: "Custom", href: "/custom" },
-        ],
-      },
-      { title: "Themes", href: "/themes" },
-      {
-        title: "Customize",
-        href: "/customize",
-      },
+      { title: "Overview", href: "/overview" },
+      { title: "Core Components", href: "/core-components" },
+      { title: "Agent-Orchestrator Interaction", href: "/agent-orchestrator" },
+      { title: "Plugin Integration", href: "/plugin-integration" },
     ],
+  },
+  {
+    title: "Developing A Plugin",
+    href: "/developing-a-plugin",
+    noLink: true,
+    items: [
+      { title: "Plugin Basics", href: "/plugin-basics" },
+      { title: "Advanced Plugin Features", href: "/advanced-features" },
+    ],
+  },
+  {
+    title: "Developing An Agent",
+    href: "/developing-an-agent",
+    noLink: true,
+    items: [
+      { title: "Agent Basics", href: "/agent-basics" },
+      { title: "Advanced Agent Development", href: "/advanced-development" },
+    ],
+  },
+  {
+    title: "Quickstart Guide",
+    href: "/quickstart",
+    items: [],
+  },
+  {
+    title: "Advanced Development",
+    href: "/advanced-development",
+    items: [],
   },
 ]
 
