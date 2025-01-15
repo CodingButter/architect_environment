@@ -7,6 +7,16 @@ const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ["@repo/ui"],
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "img.freepik.com/**",
+      },
+    ],
+  },
+  // if used turbopack
+  transpilePackages: ["next-mdx-remote"],
 }
 
 const withMDX = createMDX({

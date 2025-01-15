@@ -8,6 +8,9 @@
     "clean": "turbo clean",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
+  "overrides": {
+    "ajv": "^8.17.1"
+  },
   "strict-peer-dependencies": false,
   "devDependencies": {
     "prettier": "^3.4.2",
