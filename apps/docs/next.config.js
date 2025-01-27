@@ -9,9 +9,10 @@ const nextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   images: {
     remotePatterns: [
+      { protocol: "https", hostname: "img.freepik.com/**" },
       {
         protocol: "https",
-        hostname: "img.freepik.com/**",
+        hostname: "plantuml.com/**",
       },
     ],
   },
