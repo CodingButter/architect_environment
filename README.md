@@ -1,58 +1,103 @@
-# Turborepo Tailwind CSS starter
+# Architect AI Agent: Turbo Repo Starter
 
-This is an official starter Turborepo.
+This repository serves as the workspace for the **Architect AI Agent** project. Built with **Turborepo**, it enables efficient development and management of multiple packages and applications, ensuring seamless collaboration and optimized builds.
 
-## Using this example
+## About Architect AI Agent
 
-Run the following command:
+The **Architect AI Agent** is an innovative tool designed to develop and orchestrate other AI agents, empowering them to create tools necessary for accomplishing tasks. Its functionality spans tool construction, configuration, and deployment, offering a self-contained ecosystem for agent-driven problem-solving.
+
+## Getting Started
+
+To get started with this repository, clone it and set up your development environment:
 
 ```sh
 npx create-turbo@latest -e with-tailwind
 ```
 
-## What's inside?
+## Project Structure
 
-This Turborepo includes the following packages/apps:
+This repository leverages Turborepo to manage a monorepo structure, featuring multiple apps and packages:
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/)
-- `web`: another [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/)
-- `ui`: a stub React component library with [Tailwind CSS](https://tailwindcss.com/) shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- **`apps/docs`**: A [Next.js](https://nextjs.org/) application that serves as the documentation site, styled with [Tailwind CSS](https://tailwindcss.com/).
+- **`apps/web`**: The primary [Next.js](https://nextjs.org/) application for the Architect AI Agent interface, utilizing [Tailwind CSS](https://tailwindcss.com/).
+- **`packages/ui`**: A shared React component library styled with [Tailwind CSS](https://tailwindcss.com/), used across `web` and `docs` apps.
+- **`packages/@repo/eslint-config`**: Centralized `eslint` configurations for consistency (includes `eslint-config-next` and `eslint-config-prettier`).
+- **`packages/@repo/typescript-config`**: Shared `tsconfig.json` configurations for consistent TypeScript setup.
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+## Key Features
 
-### Building packages/ui
+- **Tool Management**: Build and orchestrate tools for AI agents to execute tasks autonomously.
+- **Customizable UI**: Leverage a shared component library for consistent and scalable design.
+- **Optimized Builds**: Utilize Turborepo for efficient dependency management and build optimization.
 
-This example is set up to produce compiled styles for `ui` components into the `dist` directory. The component `.tsx` files are consumed by the Next.js apps directly using `transpilePackages` in `next.config.js`. This was chosen for several reasons:
+### Building Shared Components
 
-- Make sharing one `tailwind.config.js` to apps and packages as easy as possible.
-- Make package compilation simple by only depending on the Next.js Compiler and `tailwindcss`.
-- Ensure Tailwind classes do not overwrite each other. The `ui` package uses a `ui-` prefix for it's classes.
-- Maintain clear package export boundaries.
+The `ui` package compiles reusable styles and components into a `dist` directory. This approach ensures:
 
-Another option is to consume `packages/ui` directly from source without building. If using this option, you will need to update the `tailwind.config.js` in your apps to be aware of your package locations, so it can find all usages of the `tailwindcss` class names for CSS compilation.
+1. Shared `tailwind.config.js` for apps and packages.
+2. Simple compilation using Next.js Compiler and `tailwindcss`.
+3. Namespace isolation via `ui-` class prefix to prevent conflicts.
 
-For example, in [tailwind.config.js](packages/tailwind-config/tailwind.config.js):
+Alternatively, you can consume `ui` directly from the source by updating the `tailwind.config.js` of the consuming apps. For example:
 
 ```js
-  content: [
-    // app content
-    `src/**/*.{js,ts,jsx,tsx}`,
-    // include packages if not transpiling
-    "../../packages/ui/*.{js,ts,jsx,tsx}",
-  ],
+content: [
+  // App content
+  "src/**/*.{js,ts,jsx,tsx}",
+  // Include packages
+  "../../packages/ui/**/*.{js,ts,jsx,tsx}",
+],
 ```
-
-If you choose this strategy, you can remove the `tailwindcss` and `autoprefixer` dependencies from the `ui` package.
 
 ### Utilities
 
-This Turborepo has some additional tools already setup for you:
+This repository is equipped with:
 
-- [Tailwind CSS](https://tailwindcss.com/) for styles
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+- [Tailwind CSS](https://tailwindcss.com/) for rapid UI development.
+- [TypeScript](https://www.typescriptlang.org/) for static type checking.
+- [ESLint](https://eslint.org/) for linting and code quality.
+- [Prettier](https://prettier.io/) for consistent formatting.
+
+## Installation
+
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/your-repo/architect-ai-agent.git
+   cd architect-ai-agent
+   ```
+
+2. Install dependencies:
+
+   ```sh
+   npm install
+   ```
+
+3. Start the development server:
+
+   ```sh
+   npm run dev
+   ```
+
+4. Build the project:
+
+   ```sh
+   npm run build
+   ```
+
+5. Run linting and formatting checks:
+
+   ```sh
+   npm run lint
+   npm run format
+   ```
+
+## Contribution
+
+Contributions to the **Architect AI Agent** project are welcome! Follow the [contributing guidelines](CONTRIBUTING.md) to submit bug fixes, features, or improvements.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
