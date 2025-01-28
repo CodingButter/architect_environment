@@ -2,10 +2,11 @@ import { MoveUpRightIcon, TerminalSquareIcon } from "lucide-react"
 import Link from "next/link"
 import { buttonVariants } from "@/components/ui/button"
 import { PageRoutes } from "@/lib/routes-config"
+import Image from "next/image"
 
 export default function Home() {
   return (
-    <div className="flex sm:min-h-[85.5vh] min-h-[85vh] flex-col items-center justify-center text-center px-2 sm:py-8 py-12">
+    <div className="relative flex sm:min-h-[85.5vh] min-h-[85vh] flex-col items-center justify-center text-center px-2 sm:py-8 py-12">
       <Link
         className="mb-5 sm:text-lg flex items-center gap-2 underline underline-offset-4 sm:-mt-12"
         href="https://github.com/username/architect"

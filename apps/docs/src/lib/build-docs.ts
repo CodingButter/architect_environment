@@ -34,7 +34,6 @@ const recursiveReadDir = (dir: string, parent?: EachRoute): EachRoute[] => {
 export function buildDocs() {
   fs.writeFileSync(
     ROUTES_JS,
-    `import { type EachRoute } from "./routes-config"
-export default ${JSON.stringify(recursiveReadDir(docsPath), null, 2)} as EachRoute[]`
+    `import { type EachRoute } from "./routes-config"\nexport default ${JSON.stringify(recursiveReadDir(docsPath), null, 2)} as EachRoute[]`
   )
 }

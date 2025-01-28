@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/contexts/theme-provider"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import "@/styles/globals.css"
+import Image from "next/image"
 
 const sansFont = Space_Grotesk({
   subsets: ["latin"],
@@ -34,13 +35,21 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${sansFont.variable} ${monoFont.variable} font-regular antialiased tracking-wide`}
+        className={`${sansFont.variable} ${monoFont.variable} font-regular antialiased tracking-wide relative`}
         suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           disableTransitionOnChange
           enableSystem>
+          <Image
+            alt="grid background"
+            src="/grid-background.jpg"
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+            className="fixed top-0 left-0 z-0 opacity-10"
+          />
           <Navbar />
           <main className="sm:container mx-auto w-[90vw] h-auto scroll-smooth">{children}</main>
           <Footer />
