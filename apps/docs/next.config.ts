@@ -11,6 +11,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       { protocol: "https" as const, hostname: "*.freepik.com/**" },
+      { protocol: "https" as const, hostname: "*.imgur.com/**" },
       { protocol: "https" as const, hostname: "*.discordapp.com/**" },
       {
         protocol: "https" as const,
