@@ -1,23 +1,23 @@
 /** @type {import('next').NextConfig} */
 import createMDX from "@next/mdx"
+import { buildDocs } from "./src/lib/build-docs"
 
 const nextConfig = {
   // Configure `pageExtensions` to include markdown and MDX files
   // Optionally, add any other Next.js config below
   reactStrictMode: true,
-  transpilePackages: ["@repo/ui"],
+  transpilePackages: ["@repo/ui", "next-mdx-remote"],
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   images: {
     remotePatterns: [
-      { protocol: "https", hostname: "img.freepik.com/**" },
+      { protocol: "https" as const, hostname: "*.freepik.com/**" },
+      { protocol: "https" as const, hostname: "*.discordapp.com/**" },
       {
-        protocol: "https",
+        protocol: "https" as const,
         hostname: "plantuml.com/**",
       },
     ],
   },
-  // if used turbopack
-  transpilePackages: ["next-mdx-remote"],
 }
 
 const withMDX = createMDX({
@@ -25,4 +25,7 @@ const withMDX = createMDX({
 })
 
 // Merge MDX config with Next.js config
-export default withMDX(nextConfig)
+export default () => {
+  buildDocs()
+  return withMDX(nextConfig)
+}

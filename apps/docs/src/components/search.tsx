@@ -1,8 +1,8 @@
-"use client";
+"use client"
 
-import { CommandIcon, FileIcon, SearchIcon } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
-import { Input } from "@/components/ui/input";
+import { CommandIcon, FileIcon, SearchIcon } from "lucide-react"
+import { useEffect, useMemo, useState } from "react"
+import { Input } from "@/components/ui/input"
 import {
   Dialog,
   DialogContent,
@@ -10,43 +10,39 @@ import {
   DialogTrigger,
   DialogClose,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { advanceSearch, cn } from "@/lib/utils";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import Anchor from "./anchor";
+} from "@/components/ui/dialog"
+import { advanceSearch, cn } from "@/lib/utils"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import Anchor from "./anchor"
 
 export default function Search() {
-  const [searchedInput, setSearchedInput] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
+  const [searchedInput, setSearchedInput] = useState("")
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.ctrlKey && event.key === "k") {
-        event.preventDefault();
-        setIsOpen(true);
+        event.preventDefault()
+        setIsOpen(true)
       }
-    };
-    window.addEventListener("keydown", handleKeyDown);
+    }
+    window.addEventListener("keydown", handleKeyDown)
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
+      window.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [])
 
-  const filteredResults = useMemo(
-    () => advanceSearch(searchedInput.trim()),
-    [searchedInput]
-  );
+  const filteredResults = useMemo(() => advanceSearch(searchedInput.trim()), [searchedInput])
 
   return (
     <div>
       <Dialog
         onOpenChange={(open) => {
-          if (!open) setSearchedInput("");
-          setIsOpen(open);
+          if (!open) setSearchedInput("")
+          setIsOpen(open)
         }}
-        open={isOpen}
-      >
+        open={isOpen}>
         <DialogTrigger asChild>
           <div className="relative flex-1 max-w-md cursor-pointer">
             <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-500 dark:text-stone-400" />
@@ -67,21 +63,23 @@ export default function Search() {
             <input
               autoFocus
               className="h-14 px-6 bg-transparent border-b text-[14px] outline-none"
-              onChange={(e) => { setSearchedInput(e.target.value); }}
+              onChange={(e) => {
+                setSearchedInput(e.target.value)
+              }}
               placeholder="Type something to search..."
               value={searchedInput}
             />
           </DialogHeader>
-          {filteredResults.length == 0 && searchedInput ? <p className="text-muted-foreground mx-auto mt-2 text-sm">
-              No results found for{" "}
-              <span className="text-primary">{`"${searchedInput}"`}</span>
-            </p> : null}
+          {filteredResults.length == 0 && searchedInput ? (
+            <p className="text-muted-foreground mx-auto mt-2 text-sm">
+              No results found for <span className="text-primary">{`"${searchedInput}"`}</span>
+            </p>
+          ) : null}
           <ScrollArea className="max-h-[400px] overflow-y-auto">
             <div className="flex flex-col items-start overflow-y-auto sm:px-2 px-1 pb-4">
               {filteredResults.map((item) => {
-                const level = (item.href.split("/").slice(1).length -
-                  1) as keyof typeof paddingMap;
-                const paddingClass = paddingMap[level];
+                const level = (item.href.split("/").slice(1).length - 1) as keyof typeof paddingMap
+                const paddingClass = paddingMap[level]
 
                 return (
                   <DialogClose asChild key={item.href}>
@@ -90,27 +88,24 @@ export default function Search() {
                         "dark:hover:bg-stone-900 hover:bg-stone-100 w-full px-3 rounded-sm text-sm flex items-center gap-2.5",
                         paddingClass
                       )}
-                      href={`/docs${item.href}`}
-                    >
+                      href={`/docs${item.href}`}>
                       <div
                         className={cn(
                           "flex items-center w-fit h-full py-3 gap-1.5 px-2",
                           level > 1 && "border-l pl-4"
-                        )}
-                      >
-                        <FileIcon className="h-[1.1rem] w-[1.1rem] mr-1" />{" "}
-                        {item.title}
+                        )}>
+                        <FileIcon className="h-[1.1rem] w-[1.1rem] mr-1" /> {item.title}
                       </div>
                     </Anchor>
                   </DialogClose>
-                );
+                )
               })}
             </div>
           </ScrollArea>
         </DialogContent>
       </Dialog>
     </div>
-  );
+  )
 }
 
 const paddingMap = {
@@ -118,4 +113,4 @@ const paddingMap = {
   2: "pl-4",
   3: "pl-10",
   // Add more levels if needed
-} as const;
+} as const
