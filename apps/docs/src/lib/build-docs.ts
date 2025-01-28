@@ -4,7 +4,7 @@ import type { EachRoute } from "./routes-config"
 
 const __dirname = process.cwd()
 const docsPath = path.join(__dirname, "contents", "docs")
-const ROUTES_JS = path.join(__dirname, "src", "lib", "routes.ts")
+const ROUTES_TS = path.join(__dirname, "src", "lib", "routes.ts")
 
 const recursiveReadDir = (dir: string, parent?: EachRoute): EachRoute[] => {
   const files = fs.readdirSync(dir)
@@ -32,8 +32,7 @@ const recursiveReadDir = (dir: string, parent?: EachRoute): EachRoute[] => {
 }
 
 export function buildDocs() {
-  fs.writeFileSync(
-    ROUTES_JS,
-    `import { type EachRoute } from "./routes-config"\nexport default ${JSON.stringify(recursiveReadDir(docsPath), null, 2)} as EachRoute[]`
-  )
+  const docContent = `import { type EachRoute } from "./routes-config"
+export default ${JSON.stringify(recursiveReadDir(docsPath), null, 2)} as EachRoute[]`
+  fs.writeFileSync(ROUTES_TS, docContent, "utf-8")
 }
