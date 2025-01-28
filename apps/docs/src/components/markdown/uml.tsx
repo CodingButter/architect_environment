@@ -10,6 +10,5 @@ export default async function Uml({ content }: UmlProps) {
   const encoded = umlEncode(content)
   const imgUrl: string = `${umlServer}${encoded}`
 
-  console.log(imgUrl)
   return <Image src={imgUrl} alt="uml" />
 }

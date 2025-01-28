@@ -1,6 +1,7 @@
-import { CommandIcon } from "lucide-react"
-import { SiGithub, SiGitter } from "react-icons/si"
+//import { CommandIcon } from "lucide-react"
+import { SiGithub } from "react-icons/si"
 import Link from "next/link"
+import Image from "next/image"
 import { ModeToggle } from "@/components/theme-toggle"
 import { PageRoutes } from "@/lib/routes-config"
 import { SheetClose } from "@/components/ui/sheet"
@@ -28,7 +29,7 @@ export const NAVLINKS = [
   },
   {
     title: "Community",
-    href: "https://github.com/nisabmohd/Aria-Docs/discussions",
+    href: "https://github.com/codingbutter/architect_environment/discussions",
   },
 ]
 
@@ -54,16 +55,8 @@ export function Navbar() {
             <div className="flex ml-2.5 sm:ml-0">
               <Link
                 className={buttonVariants({ variant: "ghost", size: "icon" })}
-                href="https://github.com/nisabmohd/NexDocs">
+                href="https://github.com/codingbutter/architect_environment">
                 <SiGithub className="h-[1.1rem] w-[1.1rem]" />
-              </Link>
-              <Link
-                className={buttonVariants({
-                  variant: "ghost",
-                  size: "icon",
-                })}
-                href="#">
-                <SiGitter className="h-[1.1rem] w-[1.1rem]" />
               </Link>
               <ModeToggle />
             </div>
@@ -77,8 +70,14 @@ export function Navbar() {
 export function Logo() {
   return (
     <Link className="flex items-center gap-2.5" href="/">
-      <CommandIcon className="w-6 h-6 text-muted-foreground" strokeWidth={2} />
-      <h2 className="text-md font-bold font-code">AriaDocs</h2>
+      <Image
+        alt="Architect"
+        height={24}
+        width={24}
+        src="/logo.png"
+        className="w-6 h-6 text-muted-foreground"
+      />
+      <h2 className="text-md font-bold font-code">Architect</h2>
     </Link>
   )
 }
