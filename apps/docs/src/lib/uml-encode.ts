@@ -3,8 +3,7 @@ import pako from "pako"
 
 export default function encodeUml(data: string): string {
   // compress the data
-  data = uriEncode(data) // encode the data
-  console.log(data)
+  data = uriEncode(data) // encode the data\
   var compressed = pako.deflate(data) // encode the compressed data
   return encode64(Buffer.from(compressed).toString("binary"))
 }
