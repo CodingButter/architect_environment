@@ -15,7 +15,6 @@ title Orchestrator
 participant TaskQueue
 participant AgentManager
 participant Logger
-
 TaskQueue --> AgentManager : Assign Task
 AgentManager -> Logger : Log Assignment
 AgentManager --> Agent : Dispatch Task

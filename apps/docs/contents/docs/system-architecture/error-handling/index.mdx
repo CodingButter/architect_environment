@@ -10,15 +10,11 @@ Errors are an inevitable part of any complex system. Architect AI ensures robust
 ## Key Strategies
 
 1. **Logging and Alerts**:
-
    - All errors are logged with detailed metadata, including timestamps, error type, and context.
    - Critical errors trigger alerts, notifying administrators or automated monitoring systems.
-
 2. **Retry Mechanisms**:
-
    - Tasks are retried with an exponential backoff strategy to handle transient issues.
    - The orchestrator tracks retry attempts to avoid endless loops.
-
 3. **Fallbacks**:
    - Alternate workflows or agents are triggered if the primary execution path fails.
    - Example: If a plugin fails to process a request, a backup plugin may be invoked.
@@ -31,7 +27,6 @@ title Error Handling Workflow
 participant Orchestrator
 participant Agent
 participant Logger
-
 Agent -> Orchestrator : Report Error
 Orchestrator -> Logger : Log Error
 Orchestrator -> Agent : Retry Task
@@ -62,5 +57,4 @@ The system includes robust monitoring tools to track errors and identify pattern
 
 - **Error Dashboards**: Visualize error types, frequencies, and impacted workflows.
 - **Automated Reports**: Periodic summaries of system health and error trends.
-
-By combining proactive monitoring with dynamic recovery mechanisms, Architect AI maintains high reliability and minimizes disruptions.
+  By combining proactive monitoring with dynamic recovery mechanisms, Architect AI maintains high reliability and minimizes disruptions.

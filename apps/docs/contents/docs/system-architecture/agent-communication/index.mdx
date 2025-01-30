@@ -10,10 +10,8 @@ Collaboration between agents is crucial for handling complex workflows in the Ar
 ## Communication Mechanisms
 
 1. **Orchestrator Mediation**:
-
    - All agent communications are routed through the orchestrator for centralized control.
    - The orchestrator ensures secure and efficient message delivery.
-
 2. **Direct Messaging**:
    - In specific scenarios, agents can communicate directly with each other when the orchestrator grants permission.
    - This reduces latency and allows faster synchronization.
@@ -26,7 +24,6 @@ title Agent Collaboration Workflow
 participant Orchestrator
 participant AgentA
 participant AgentB
-
 AgentA -> Orchestrator : Request Collaboration
 Orchestrator -> AgentB : Forward Request
 AgentB -> Orchestrator : Respond
@@ -53,13 +50,9 @@ Orchestrator --> AgentA : Relay Response
 ## Security and Permissions
 
 1. **Authentication**:
-
    - Agents authenticate their identity before initiating communication.
-
 2. **Authorization**:
-
    - The orchestrator verifies whether an agent is allowed to communicate with another agent.
-
 3. **Audit Logs**:
    - All inter-agent communications are logged for traceability and debugging.
 
@@ -67,5 +60,4 @@ Orchestrator --> AgentA : Relay Response
 
 - **Real-Time Monitoring**: View active agent communications and their statuses.
 - **Historical Data**: Analyze past interactions to optimize workflows and identify bottlenecks.
-
-Agent-to-agent communication ensures that Architect AI remains a robust and scalable framework capable of handling diverse and complex workflows efficiently.
+  Agent-to-agent communication ensures that Architect AI remains a robust and scalable framework capable of handling diverse and complex workflows efficiently.

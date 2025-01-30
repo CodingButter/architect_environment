@@ -35,23 +35,22 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${sansFont.variable} ${monoFont.variable} font-regular antialiased tracking-wide relative`}
+        className={`relative ${sansFont.variable} ${monoFont.variable} font-regular antialiased tracking-wide relative bg-background`}
         suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           disableTransitionOnChange
           enableSystem>
-          <Image
-            alt="grid background"
-            src="/grid-background.jpg"
-            layout="fill"
-            objectFit="cover"
-            quality={100}
-            className="fixed top-0 left-0 z-0 opacity-10"
+          <div
+            className={`opacity-30 absolute w-full h-full bg-fixed bg-cover bg-ima bg-center
+             [background-opacity:10] [background-image:url('/grid-background.jpg')]`}
           />
           <Navbar />
-          <main className="sm:container mx-auto w-[90vw] h-auto scroll-smooth">{children}</main>
+
+          <main className="relative sm:container mx-auto w-[90vw] h-auto scroll-smooth ">
+            {children}
+          </main>
           <Footer />
         </ThemeProvider>
       </body>

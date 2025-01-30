@@ -1,5 +1,5 @@
 ---
-title: Agent-Orchestrator Interaction
+title: Orchestrator
 description: How agents interact with the orchestrator.
 ---
 
@@ -15,7 +15,6 @@ title Agent-Orchestrator Interaction
 participant Orchestrator
 participant Agent
 participant Plugin
-
 Orchestrator -> Agent : Assign Task
 Agent -> Plugin : Use Plugin
 Plugin --> Agent : Return Data

@@ -15,7 +15,6 @@ title Orchestrator
 participant TaskQueue
 participant AgentManager
 participant Logger
-
 TaskQueue --> AgentManager : Assign Task
 AgentManager -> Logger : Log Assignment
 AgentManager --> Agent : Dispatch Task
@@ -33,7 +32,6 @@ title Agents
 participant Orchestrator
 participant Agent
 participant Plugin
-
 Orchestrator --> Agent : Send Context
 Agent -> Plugin : Use Plugin
 Plugin --> Agent : Return Result

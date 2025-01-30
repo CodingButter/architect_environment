@@ -24,7 +24,6 @@ participant TaskQueue
 participant Orchestrator
 participant Agent
 participant Plugin
-
 TaskQueue -> Orchestrator : Provide Next Task
 Orchestrator -> Agent : Assign Task
 Agent -> Plugin : Use Plugin
@@ -49,5 +48,4 @@ Imagine a user submits a task to analyze sales data:
 3. **Assignment**: An agent equipped with data analysis plugins is selected.
 4. **Execution**: The agent uses the plugins to process the sales data.
 5. **Completion**: Results are returned to the user, and the task is marked as complete.
-
-This system ensures timely and efficient handling of tasks, maintaining a high standard of reliability and performance.
+   This system ensures timely and efficient handling of tasks, maintaining a high standard of reliability and performance.

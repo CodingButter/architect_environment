@@ -1,0 +1,68 @@
+---
+title: Core Concepts
+description: Before diving deeper into the framework, it's essential to understand the core concepts that make up the Architect ecosystem.
+---
+
+#### Agents
+
+Agents are the fundamental execution units within Architect. They represent discrete components
+of your system that can operate independently or collaboratively to achieve a common goal. Each
+agent is designed to perform a specific task and can communicate with other agents through
+well-defined interfaces.
+
+##### Characteristics of Agents:
+
+- **Autonomous**: Agents operate independently, making decisions based on their current state
+  and the information they receive from other components.
+- **Specialized**: Each agent is designed for a specific purpose, ensuring that your system
+  remains modular and easy to maintain.
+- **Communicative**: Agents can exchange information with each other directly or through
+  centralized coordination mechanisms.
+
+#### Plugins
+
+Plugins are extensions that allow you to enhance the functionality of your agents. They provide
+a way to integrate external services, add new behaviors, or modify existing ones without
+altering the core framework. Plugins are designed to be lightweight and easy to develop, making
+it simple for developers to extend the capabilities of their system.
+
+##### Types of Plugins:
+
+- **Service Integration**: Connect your agents to external services such as databases, messaging
+  queues, or cloud platforms.
+- **Behavior Modification**: Extend or override default behaviors of agents to customize their
+  operation.
+- **Utility Functions**: Add helper functions that can be used across multiple agents to reduce
+  code duplication.
+
+#### Orchestrator
+
+The orchestrator is the central component responsible for managing the lifecycle of your agents
+and ensuring that they operate in harmony. It handles tasks such as agent creation,
+communication, and resource allocation. The orchestrator also monitors the system's health and
+takes corrective actions when necessary.
+
+##### Key Responsibilities:
+
+- **Agent Lifecycle Management**: Create, start, stop, and terminate agents as needed.
+- **Communication Brokerage**: Facilitate communication between agents, ensuring that they can
+  exchange information efficiently.
+- **Resource Allocation**: Manage resources such as CPU, memory, and network bandwidth to ensure
+  optimal performance.
+- **Health Monitoring**: Continuously monitor the system's health and take proactive measures to
+  prevent failures.
+
+#### Workflow
+
+The workflow defines the sequence of actions that your system will execute. It specifies how
+agents interact with each other, what triggers their execution, and how data flows through the
+system. Workflows can be defined using a declarative syntax or through a visual interface,
+making it easy to design complex processes without writing extensive code.
+
+##### Key Aspects:
+
+- **Definition**: Define workflows using a simple, human-readable format.
+- **Execution**: The orchestrator interprets and executes workflows, ensuring that agents are
+  activated in the correct order.
+- **Monitoring**: Track the progress of workflows in real-time and receive notifications when
+  specific events occur.

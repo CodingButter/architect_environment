@@ -1,0 +1,175 @@
+---
+title: "Quickstart Guide for Architect"
+description: "A comprehensive guide to help you get started with Architect, including setup, configuration, and essential usage tips."
+date: 01-27-2025
+---
+
+## Step 1: Installation
+
+Architect can be set up in just a few steps. Ensure you have the prerequisites installed:
+
+### Prerequisites
+
+- **Node.js**: Version 16.x or higher
+- **npm** or **yarn**: For package management
+- **Git**: To clone the repository
+
+### Install Architect CLI
+
+```bash
+npx create-architect <project-directory>
+```
+
+This command will initialize a new Architect project in the specified directory.
+Alternatively, clone the repository manually:
+
+```bash
+git clone https://github.com/codingbutter/architect_environment.git
+cd architect_environment
+npm install
+```
+
+---
+
+## Step 2: Configuration
+
+Architect uses a configuration file to define agents, plugins, and tools. The default configuration file is `architect.config.json`.
+
+### Example Configuration File
+
+```json
+{
+  "projectName": "My First Architect Project",
+  "agents": [
+    {
+      "name": "data-analyzer",
+      "description": "Analyzes datasets and provides insights.",
+      "tools": ["data-cleaning", "data-visualization"],
+      "plugins": {
+        "shared": ["data-fetch-plugin"],
+        "specific": []
+      }
+    }
+  ],
+  "plugins": ["data-cleaning", "data-visualization", "data-fetch-plugin"]
+}
+```
+
+- **`projectName`**: The name of your project.
+- **`agents`**: A list of agents with their configurations.
+- **`plugins`**: A global list of plugins available to all agents.
+
+---
+
+## Step 3: Creating Your First Agent
+
+Agents are the core of Architect. To create an agent, define it in the configuration file and provide the necessary tools and plugins.
+
+### Adding an Agent
+
+Update the `architect.config.json` file:
+
+```json
+{
+  "agents": [
+    {
+      "name": "text-summary-agent",
+      "description": "Summarizes large texts efficiently.",
+      "tools": ["nlp-summarizer", "keyword-extractor"],
+      "plugins": {
+        "shared": ["nlp-plugin"],
+        "specific": []
+      }
+    }
+  ]
+}
+```
+
+Run Architect to apply the changes:
+
+```bash
+npm run architect:start
+```
+
+---
+
+## Step 4: Using Plugins
+
+Plugins extend the functionality of agents. They can be shared across agents or tailored to specific needs.
+
+### Example: Adding a New Plugin
+
+1. Install the plugin:
+   ```bash
+   npm install architect-plugin-nlp
+   ```
+2. Update the configuration:
+   ```json
+   {
+     "plugins": ["architect-plugin-nlp"]
+   }
+   ```
+3. Use the plugin in your agent:
+   ```json
+   {
+     "agents": [
+       {
+         "name": "text-summary-agent",
+         "plugins": {
+           "shared": ["architect-plugin-nlp"]
+         }
+       }
+     ]
+   }
+   ```
+
+---
+
+## Step 5: Running Your Project
+
+Start Architect with the following command:
+
+```bash
+npm run start
+```
+
+This will initialize the orchestrator, load your agents, and activate the plugins.
+Access the Architect dashboard at `http://localhost:3000` for a graphical interface to manage agents and workflows.
+
+---
+
+## Step 6: Exploring Advanced Features
+
+### Self-Updating Documentation
+
+Architect dynamically updates its documentation based on changes to the configuration and codebase. View the latest docs in the `docs` directory.
+
+### Git Integration
+
+Architect integrates seamlessly with Git to track changes and manage documentation updates. Ensure your repository is configured with:
+
+```bash
+git init
+git remote add origin <repository-url>
+```
+
+---
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Missing Dependencies**:
+   - Run `npm install` to ensure all dependencies are installed.
+2. **Agent Not Loading**:
+   - Verify the configuration file syntax.
+   - Check for plugin compatibility.
+3. **Port Already in Use**:
+   - Stop other processes using the same port or change the port in the `architect.config.json` file.
+
+---
+
+## Conclusion
+
+You’re now ready to start building with Architect! This framework is designed to simplify AI development while providing powerful tools for customization and scalability. Join the community on [GitHub](https://github.com/codingbutter/architect_environment) and explore the endless possibilities Architect offers.
+Happy building! 🚀
