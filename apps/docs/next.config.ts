@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 import createMDX from "@next/mdx"
-import { buildDocs } from "./src/lib/build-docs"
+import { createDocs } from "./src/lib/build-docs"
+import routes from "./src/lib/routes"
 
 const nextConfig = {
   // Configure `pageExtensions` to include markdown and MDX files
@@ -27,6 +28,6 @@ const withMDX = createMDX({
 
 // Merge MDX config with Next.js config
 export default () => {
-  //buildDocs()
+  createDocs(routes)
   return withMDX(nextConfig)
 }
