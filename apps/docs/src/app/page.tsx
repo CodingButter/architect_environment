@@ -9,7 +9,7 @@ export default function Home() {
     <div className="relative flex sm:min-h-[85.5vh] min-h-[85vh] flex-col items-center justify-center text-center px-2 sm:py-8 py-12">
       <Link
         className="mb-5 sm:text-lg flex items-center gap-2 underline underline-offset-4 sm:-mt-12"
-        href="https://github.com/username/architect"
+        href="https://github.com/codingbutter/architect_environment"
         target="_blank">
         Follow Architect on GitHub <MoveUpRightIcon className="w-4 h-4 font-extrabold" />
       </Link>
