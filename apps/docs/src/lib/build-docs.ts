@@ -12,14 +12,9 @@ export const createDocs = (routes: EachRoute[], baseHref: string = "") => {
     const filePath = path.join(dirPath, "index.mdx")
     if (!fs.existsSync(dirPath)) {
       fs.mkdirSync(dirPath, { recursive: true })
+      fs.writeFileSync(filePath, `---\ntitle: ${title}\n---\n`)
     }
-    fs.writeFileSync(
-      filePath,
-      `---
-title: ${title}
----
-`
-    )
+
     if (items) {
       createDocs(items, href)
     }
