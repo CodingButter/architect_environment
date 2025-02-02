@@ -1,5 +1,5 @@
 import { type EachRoute } from "./routes-config"
-export const doc_routes = [
+export default [
   {
     title: "Architect Token",
     href: "/architect-token",
