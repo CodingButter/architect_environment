@@ -3,7 +3,7 @@ import { SiGithub } from "react-icons/si"
 import Link from "next/link"
 import Image from "next/image"
 import { ModeToggle } from "@/components/theme-toggle"
-import { PageRoutes } from "@/lib/routes-config"
+import { PageRoutes, TokenPageRoutes } from "@/lib/routes-config"
 import { SheetClose } from "@/components/ui/sheet"
 import { buttonVariants } from "./ui/button"
 import Anchor from "./anchor"
@@ -20,8 +20,8 @@ export const NAVLINKS = [
     href: "/blog",
   },
   {
-    title: "Guides",
-    href: "#",
+    title: "Token",
+    href: `/docs/architect-token`,
   },
   {
     title: "Community",

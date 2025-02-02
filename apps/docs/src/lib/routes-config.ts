@@ -1,4 +1,4 @@
-import routes from "./routes"
+import { doc_routes } from "./routes"
 export interface EachRoute {
   title: string
   href: string
@@ -6,7 +6,7 @@ export interface EachRoute {
   items?: EachRoute[]
 }
 
-export const ROUTES: EachRoute[] = routes
+export const ROUTES: EachRoute[] = doc_routes
 interface Page {
   title: string
   href: string

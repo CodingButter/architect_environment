@@ -1,5 +1,15 @@
 import { type EachRoute } from "./routes-config"
-export default [
+export const doc_routes = [
+  {
+    title: "Architect Token",
+    href: "/architect-token",
+    items: [
+      { title: "Tokenomics", href: "/tokenomics" },
+      { title: "Governance", href: "/governance" },
+      { title: "Roadmap", href: "/roadmap" },
+      { title: "Whitepaper", href: "/whitepaper" },
+    ],
+  },
   {
     title: "Introduction",
     href: "/introduction",

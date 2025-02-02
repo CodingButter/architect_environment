@@ -1,0 +1,24 @@
+"use client"
+import { useState, createContext, useContext } from "react"
+import ArchClient, { type ClientOptions } from "@repo/core/client"
+import React from "react"
+
+const APIContext = createContext<ArchClient | null>(null)
+
+export const useAPI = () => {
+  const context = useContext(APIContext)
+  if (!context) {
+    throw new Error("useAPI must be used within a APIProvider")
+  }
+  return context
+}
+
+export interface ProviderProps extends React.PropsWithChildren<{}> {
+  options?: ClientOptions
+  children: React.ReactNode
+}
+
+export const APIProvider: React.FC<ProviderProps> = ({ options, children }) => {
+  const [archClient] = useState<ArchClient | null>(new ArchClient({ ...options }))
+  return <APIContext.Provider value={archClient}>{children}</APIContext.Provider>
+}
