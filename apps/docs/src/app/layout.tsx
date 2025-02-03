@@ -22,9 +22,9 @@ const monoFont = Space_Mono({
 
 export const metadata: Metadata = {
   title: "Architect",
-  metadataBase: new URL("https://ariadocs.vercel.app/"),
+  metadataBase: new URL("https://architect.codingbutter.com"),
   description:
-    "This comprehensive documentation template, crafted with Next.js and available as open-source, delivers a sleek and responsive design, tailored to meet all your project documentation requirements.",
+    "Architect is a platform for building, deploying, and managing cloud-native applications.",
 }
 
 export default function RootLayout({
