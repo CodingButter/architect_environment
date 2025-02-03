@@ -1,4 +1,5 @@
 import { MoveUpRightIcon, TerminalSquareIcon } from "lucide-react"
+import DexScreener from "@/components/ui/icons/DexScreener"
 import Link from "next/link"
 import { buttonVariants } from "@/components/ui/button"
 import { PageRoutes } from "@/lib/routes-config"
@@ -38,8 +39,10 @@ export default function Home() {
         </Link>
       </div>
       <span className="flex flex-row items-start sm:gap-2 gap-0.5 text-muted-foreground text-md mt-7 -mb-12 max-[800px]:mb-12 font-code sm:text-base text-sm font-medium">
-        <TerminalSquareIcon className="w-5 h-5 sm:mr-1 mt-0.5" />
-        {"npx create-architect <project-directory>"}
+        <DexScreener className="w-5 h-5 sm:mr-1 mt-0.5" />
+        <a href="https://dexscreener.com/solana/7KKL9cEUahEZGD2UYtf5c1VGGLD1JgajXgftmUQBpump">
+          7KKL9cEUahEZGD2UYtf5c1VGGLD1JgajXgftmUQBpump
+        </a>
       </span>
     </div>
   )
