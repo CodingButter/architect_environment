@@ -10,7 +10,6 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@repo/core": "workspace:*",
     "@repo/ui": "workspace:*",
     "dotenv": "^16.4.7",
     "next": "^15.1.4",

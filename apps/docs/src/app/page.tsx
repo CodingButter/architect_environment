@@ -4,6 +4,7 @@ import Link from "next/link"
 import { buttonVariants } from "@/components/ui/button"
 import { PageRoutes } from "@/lib/routes-config"
 import Image from "next/image"
+import TwitterEmbed from "@/components/ui/twitterembed"
 
 export default function Home() {
   return (
@@ -47,18 +48,7 @@ export default function Home() {
           7KKL9cEUahEZGD2UYtf5c1VGGLD1JgajXgftmUQBpump
         </a>
       </span>
-      <div className="flex flex-col items-center justify-center p-12">
-        <blockquote className="twitter-tweet">
-          <p lang="zxx" dir="ltr">
-            <a href="https://t.co/rgFR9bSO5S">https://t.co/rgFR9bSO5S</a>
-          </p>
-          &mdash; Architect AI (@_ArchitectAI){" "}
-          <a href="https://twitter.com/_ArchitectAI/status/1892408152475201545?ref_src=twsrc%5Etfw">
-            February 20, 2025
-          </a>
-        </blockquote>{" "}
-        <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
-      </div>
+      <TwitterEmbed id="1892408152475201545" />
     </div>
   )
 }
