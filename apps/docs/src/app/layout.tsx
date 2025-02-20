@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`relative ${sansFont.variable} ${monoFont.variable} font-regular antialiased tracking-wide relative bg-background`}
+        className={`relative ${sansFont.variable} ${monoFont.variable} font-regular antialiased tracking-wide relative bg-background scroll-smooth`}
         suppressHydrationWarning>
         <ThemeProvider
           attribute="class"

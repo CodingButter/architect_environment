@@ -1,5 +1,4 @@
 import { type ComponentProps } from "react"
-import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "../ui/collapsible"
 import Copy from "./copy"
 import Uml from "./uml"
 import classNames from "classnames"
@@ -26,11 +25,6 @@ export default function Pre({ children, raw, ...rest }: ComponentProps<"pre"> & 
       {raw && raw.includes("@startuml") ? (
         <div className="relative flex flex-col">
           <Uml content={raw} />
-          {/* <Collapsible defaultOpen className="relative">
-            <PreCopy raw={raw} {...rest}>
-              {children}
-            </PreCopy>
-          </Collapsible> */}
         </div>
       ) : (
         <PreCopy raw={raw} {...rest}>

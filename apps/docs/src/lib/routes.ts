@@ -6,7 +6,10 @@ export default [
     items: [
       { title: "Tokenomics", href: "/tokenomics" },
       { title: "Governance", href: "/governance" },
-      { title: "Roadmap", href: "/roadmap" },
+      {
+        title: "Roadmap",
+        href: "/roadmap",
+      },
       { title: "Whitepaper", href: "/whitepaper" },
     ],
   },

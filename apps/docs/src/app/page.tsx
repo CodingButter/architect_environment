@@ -11,7 +11,8 @@ export default function Home() {
       <Link
         className="mb-5 sm:text-lg flex items-center gap-2 underline underline-offset-4 sm:-mt-12"
         href="https://github.com/codingbutter/architect_environment"
-        target="_blank">
+        target="_blank"
+      >
         Follow Architect on GitHub <MoveUpRightIcon className="w-4 h-4 font-extrabold" />
       </Link>
       <h1 className="text-3xl font-bold mb-4 sm:text-6xl">
@@ -25,7 +26,8 @@ export default function Home() {
       <div className="flex flex-row items-center gap-5">
         <Link
           className={buttonVariants({ className: "px-6", size: "lg" })}
-          href={`/docs${PageRoutes[0].href}`}>
+          href={`/docs${PageRoutes[0].href}`}
+        >
           Get Started
         </Link>
         <Link
@@ -34,7 +36,8 @@ export default function Home() {
             className: "px-6",
             size: "lg",
           })}
-          href="/blog">
+          href="/blog"
+        >
           Explore Blog
         </Link>
       </div>
@@ -44,6 +47,18 @@ export default function Home() {
           7KKL9cEUahEZGD2UYtf5c1VGGLD1JgajXgftmUQBpump
         </a>
       </span>
+      <div className="flex flex-col items-center justify-center p-12">
+        <blockquote className="twitter-tweet">
+          <p lang="zxx" dir="ltr">
+            <a href="https://t.co/rgFR9bSO5S">https://t.co/rgFR9bSO5S</a>
+          </p>
+          &mdash; Architect AI (@_ArchitectAI){" "}
+          <a href="https://twitter.com/_ArchitectAI/status/1892408152475201545?ref_src=twsrc%5Etfw">
+            February 20, 2025
+          </a>
+        </blockquote>{" "}
+        <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+      </div>
     </div>
   )
 }
